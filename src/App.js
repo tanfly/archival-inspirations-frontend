@@ -55,7 +55,6 @@ const mapStateToProps = state => {
   return ({
     loggedIn: !!state.currentUser,
     allPosts: state.myPosts
-
   })
 }
 
