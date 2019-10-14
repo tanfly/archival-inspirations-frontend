@@ -8,11 +8,11 @@ export default (state = [], action) => {
 		case "SET_MY_POSTS":
 		  return action.posts
 		case "ADD_POST":
-			return {posts: [{...state}, action.post]};
+			return state.concat(action.post);
 		case "UPDATE_POST":
-		return state.map(post => post.id===action.post.id ? action.post : post)
+			return state.map(post => post.id===action.post.id ? action.post : post)
 		case "DELETE_POST_SUCCESS":
-		return state.filter(post => post.id === action.postId ? false:true)
+			return state.filter(post => post.id === action.postId ? false:true)
 		case "CLEAR_POSTS":
 		  return []
 		case "LIKE_POST":

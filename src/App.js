@@ -19,9 +19,11 @@ class App extends Component {
     this.props.getCurrentUser()
   }
 
+
   render(){
     const {loggedIn, allPosts} = this.props
 
+    console.log(allPosts)
     return (
       <header className="app-header">
         <div className="App">
@@ -34,13 +36,13 @@ class App extends Component {
             <Route exact path="/my-posts" component={MyPosts}/>
             <Route exact path="/signup" component={SignUp}/>
             <Route exact path="/my-posts/new" component={NewPostFormWrapper}/>
-            <Route exact path="/posts/:id"    render={props => {
+            <Route exact path="/posts/:id" render={props => {
               const post = allPosts.find((post) => post.id === parseInt(props.match.params.id));
                 return <PostCard post={post} {...props}/>
               }}/>
             <Route exact path="/posts/:id/edit"    render={props => {
               const post = allPosts.find((post) => post.id === parseInt(props.match.params.id));
-           // setFormDataForEdit(trip)
+           // setFormDataForEdit(post)
                 return <EditFormWrapper post={post} {...props}/>
               }}/>
             </Switch>
@@ -54,7 +56,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return ({
     loggedIn: !!state.currentUser,
-    allPosts: state.myPosts
+    allPosts: state.myPosts.data
   })
 }
 
