@@ -11,7 +11,7 @@ const Nav = ({currentUser, loggedIn}) => {
 		<NavLink exact className="activeClass" to="/my-posts">My Posts  </NavLink>
 		<NavLink exact className="activeClass" to="/my-posts/new">New Post  </NavLink>
 		{ loggedIn ? <Logout/> : null} 	
-		 <h2>Welcome, {currentUser.username}!</h2>
+		 <h2>Welcome, {currentUser.data.attributes.username}!</h2>
 		</div>
 		)
 }
