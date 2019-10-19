@@ -37,11 +37,12 @@ class App extends Component {
             <Route exact path="/signup" component={SignUp}/>
             <Route exact path="/my-posts/new" component={NewPostFormWrapper}/>
             <Route exact path="/posts/:id" render={props => {
-              const post = allPosts.data ? allPosts.data.find((post => post.id == parseInt(props.match.params.id))) : "Loading"
+              const post = allPosts ? allPosts.find((post => post.id == parseInt(props.match.params.id))) : "Loading"
+              console.log(props.match.params.id)
               return <PostCard post={post} {...props}/>
            }} />
             <Route exact path="/posts/:id/edit"    render={props => {
-              const post = allPosts.data ? allPosts.data.find((post => post.id == parseInt(props.match.params.id))) : "Loading"
+             const post = allPosts ? allPosts.find((post => post.id == parseInt(props.match.params.id))) : "Loading"
               return <EditFormWrapper post={post} {...props}/>
               }}/>
             </Switch>

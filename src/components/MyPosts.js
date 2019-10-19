@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 
+
 const MyPosts = props => {
-	const postCards = props.posts.data ? 
-	props.posts.data.map( post => <Link to={`/posts/${post.id}`} key={post.id}>{post.attributes.title}<br/></Link>): "No posts at the moment"
+
+	const postCards = props.posts ?
+	props.posts.map( post => <Link to={`/posts/${post.id}`} key={post.id}>{post.attributes.title}<br/></Link>): "No posts at the moment"
 	return postCards
 }
 

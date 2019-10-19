@@ -12,6 +12,7 @@ export const resetNewForm = () => {
 }
 
 export const setFormDataForEdit = post => {
+	console.log(post)
 	const postData = {
 		photo: post.photo,
 		title: post.title,
