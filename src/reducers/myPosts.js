@@ -10,7 +10,10 @@ export default (state = [], action) => {
 		case "ADD_POST":
 			return state.concat(action.post);
 		case "UPDATE_POST":
-			return state.map(post => post.id===action.post.id ? action.post : post)
+				return {
+					...state,
+					post: action.post,
+			  }
 		case "DELETE_POST_SUCCESS":
 			return state.filter(post => post.id === action.postId ? false:true)
 		case "CLEAR_POSTS":

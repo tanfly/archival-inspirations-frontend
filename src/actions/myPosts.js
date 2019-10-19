@@ -29,6 +29,7 @@ export const setMyPosts = posts => {
  }
 
  export const updatePostSuccess = post => {
+	 console.log(post)
  	return {
  		type: "UPDATE_POST",
  		post
@@ -97,7 +98,6 @@ export const createPost = (postData, history) => {
 
 
 export const updatePost = (postData, history) => {
-	//this updateTrip is sending a fetch request
 	return dispatch => {
 		const sendablePostData = {
 			post: {

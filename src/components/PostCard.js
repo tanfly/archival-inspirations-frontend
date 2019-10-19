@@ -11,9 +11,10 @@ const PostCard = (post) => {
 		
 
 		<div className="postCard">
-			<div>{console.log(post.post)}</div>
-		<h3>{post.post.attributes.title}</h3> <br/>
-		<img src={post.post.attributes.photo} alt={post.post.attributes.title} width="500px" height="500px"/><br/><Link to={`/posts/${post.post.id}/edit`}>Edit Post</Link></div> :
+		<h3>{post.post.attributes.title} - {post.post.attributes.time_period}</h3> <br/>
+		<img src={post.post.attributes.photo} alt={post.post.attributes.title} width="500px" height="500px"/><br/>
+		<p>{post.post.attributes.description}</p>
+		<Link to={`/posts/${post.post.id}/edit`}>Edit Post</Link></div> :
 		null
 		)
 }
