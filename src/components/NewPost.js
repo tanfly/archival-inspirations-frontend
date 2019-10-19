@@ -2,7 +2,7 @@ import React from 'react';
 import { updateNewPost } from '../actions/newPost'
 import { connect } from 'react-redux'
 
-const NewPost = ({ formData, updateNewPost, history, userId, post, handleSubmit, editMode, editData }) => {
+const NewPost = ({ formData, updateNewPost, history, userId, post, handleSubmit, editMode}) => {
 
 	const handleOnChange = event => {
 		const { name, value } = event.target
@@ -27,7 +27,7 @@ const NewPost = ({ formData, updateNewPost, history, userId, post, handleSubmit,
     	<input 
     	type="text"
     	name="photo"
-        value={editData ? editData.photo : formData.photo}
+        value={formData.photo}
     	onChange={handleOnChange}
     	placeholder="photo url"
     	/><br/>
@@ -35,21 +35,21 @@ const NewPost = ({ formData, updateNewPost, history, userId, post, handleSubmit,
     	type="text"
     	name="title"
     	onChange={handleOnChange}
-    	value={editData ? editData.title : formData.title}
+    	value={formData.title}
     	placeholder="title"
     	/><br/>
     	<input 
     	type="text"
     	name="description"
     	onChange={handleOnChange}
-    	value={editData ? editData.description : formData.description}
+    	value={formData.description}
     	placeholder="description"
     	/><br/>
         <input 
         type="text"
         name="time_period"
         onChange={handleOnChange}
-        value={editData ? editData.time_period : formData.time_period}
+        value={formData.time_period}
         placeholder="time period"
         /><br/>
     	<input type="submit" value={ editMode ? "Update" : "Add"}/>

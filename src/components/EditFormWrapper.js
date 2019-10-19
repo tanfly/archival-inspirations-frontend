@@ -11,12 +11,12 @@ class EditFormWrapper extends Component {
  
 
  componentDidMount(){
-	 this.props.post && this.props.setFormDataForEdit(this.props.post)
+	 this.props.post && this.props.setFormDataForEdit(this.props.post.attributes)
 	 console.log(this.props.post)
  }
 
  componentDidUpdate(prevProps){
- 	this.props.post && !prevProps.post && this.props.setFormDataForEdit(this.props.post)
+ 	this.props.post && !prevProps.post && this.props.setFormDataForEdit(this.props.post.attributes)
  }
 
  componentWillUnmount(){
@@ -39,7 +39,7 @@ class EditFormWrapper extends Component {
 		const { history, deletePost, post } = this.props
 		const postId = post ? post.id : null 
 	return <>
-			<NewPost editMode history={this.history} handleSubmit={this.handleSubmit} editData={this.props.post.attributes}/>
+			<NewPost editMode history={this.history} handleSubmit={this.handleSubmit}/>
 			<button style={{color:"red"}}onClick={()=>deletePost(postId, history)}> Delete </button>
 			</>
 }
