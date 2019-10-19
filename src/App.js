@@ -41,9 +41,8 @@ class App extends Component {
               return <PostCard post={post} {...props}/>
            }} />
             <Route exact path="/posts/:id/edit"    render={props => {
-              const post = allPosts.data ? allPosts.data.find((post) => post.id == parseInt(props.match.params.id)) : "Loading";
-           // setFormDataForEdit(post)
-                return <EditFormWrapper post={post} {...props}/>
+              const post = allPosts.data ? allPosts.data.find((post => post.id == parseInt(props.match.params.id))) : "Loading"
+              return <EditFormWrapper post={post} {...props}/>
               }}/>
             </Switch>
           </Router>

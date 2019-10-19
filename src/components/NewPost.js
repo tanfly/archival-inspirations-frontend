@@ -2,11 +2,11 @@ import React from 'react';
 import { updateNewPost } from '../actions/newPost'
 import { connect } from 'react-redux'
 
-const NewPost = ({ formData, updateNewPost, history, userId, post, handleSubmit, editMode }) => {
+const NewPost = ({ formData, updateNewPost, history, userId, post, handleSubmit, editMode, editData }) => {
 
 	const handleOnChange = event => {
 		const { name, value } = event.target
-		//updateNewTrip(name, value)
+		//updateNewPost(name, value)
 		const enteredNewPost = {
 			...formData,
 			[name]:value
@@ -17,27 +17,17 @@ const NewPost = ({ formData, updateNewPost, history, userId, post, handleSubmit,
 	
 	}
 
-	// const handleSubmit = event => {
-	// 	event.preventDefault()
- //        createTrip({
- //            ...formData,
- //            userId
- //        }, history)
-
-
-	// }
 
   return (
 
 
     <form onSubmit={event => {
-        event.preventDefault()
+		event.preventDefault()
         handleSubmit(event, formData, userId, history)}}>
-    <h3> Create Post: </h3>
     	<input 
     	type="text"
     	name="photo"
-        value={formData.photo}
+        value={editData ? editData.photo : formData.photo}
     	onChange={handleOnChange}
     	placeholder="photo url"
     	/><br/>
@@ -45,21 +35,21 @@ const NewPost = ({ formData, updateNewPost, history, userId, post, handleSubmit,
     	type="text"
     	name="title"
     	onChange={handleOnChange}
-    	value={formData.title}
+    	value={editData ? editData.title : formData.title}
     	placeholder="title"
     	/><br/>
     	<input 
     	type="text"
     	name="description"
     	onChange={handleOnChange}
-    	value={formData.description}
+    	value={editData ? editData.description : formData.description}
     	placeholder="description"
     	/><br/>
         <input 
         type="text"
         name="time_period"
         onChange={handleOnChange}
-        value={formData.time_period}
+        value={editData ? editData.time_period : formData.time_period}
         placeholder="time period"
         /><br/>
     	<input type="submit" value={ editMode ? "Update" : "Add"}/>
@@ -76,4 +66,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, {updateNewPost})(NewPost);
+export default connect(mapStateToProps, {updateNewPost})(NewPost); 
