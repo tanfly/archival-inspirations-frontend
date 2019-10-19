@@ -20,10 +20,10 @@ const NewPost = ({ formData, updateNewPost, history, userId, post, handleSubmit,
 
   return (
 
-
     <form onSubmit={event => {
 		event.preventDefault()
         handleSubmit(event, formData, userId, history)}}>
+		{editMode ? <h3>{"Edit Post"}</h3> : <h3>{"Create New Post"}</h3>}
     	<input 
     	type="text"
     	name="photo"

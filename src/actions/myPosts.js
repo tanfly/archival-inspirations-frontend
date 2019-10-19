@@ -135,7 +135,7 @@ export const updatePost = (postData, history) => {
 
 export const deletePost = (postId, history) => {
 	return dispatch => {
-		return fetch(`http://localhost:3001/post/${postId}`, {
+		return fetch(`http://localhost:3001/posts/${postId}`, {
 			credentials: "include",
 			method: "DELETE",
 			headers: {
