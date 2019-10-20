@@ -22,7 +22,7 @@ class App extends Component {
 
 
   render(){
-    const {loggedIn, allPosts} = this.props
+    const {loggedIn, allPosts, myPosts} = this.props
 
 
     return (
@@ -43,7 +43,7 @@ class App extends Component {
               return <PostCard post={post} {...props}/>
            }} />
             <Route exact path="/posts/:id/edit"    render={props => {
-             const post = allPosts ? allPosts.find((post => post.id == parseInt(props.match.params.id))) : "Loading"
+             const post = myPosts ? myPosts.find((post => post.id == parseInt(props.match.params.id))) : "Loading"
               return <EditFormWrapper post={post} {...props}/>
               }}/>
             </Switch>
@@ -57,7 +57,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return ({
     loggedIn: !!state.currentUser,
-    allPosts: state.myPosts
+    myPosts: state.myPosts,
+    allPosts: state.allPosts
   })
 }
 
