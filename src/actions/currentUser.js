@@ -90,6 +90,7 @@ import { getPosts } from "./allPosts"
       } else {
         dispatch(setCurrentUser(user))
         dispatch(getMyPosts(user.data.id))
+        dispatch(getPosts())
       }
 
 
