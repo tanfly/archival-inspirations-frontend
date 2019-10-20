@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/currentUser"
 import Login from "./components/LoginForm"
 import SignUp from "./components/SignUp"
+import AllPosts from "./components/AllPosts"
 import MyPosts from "./components/MyPosts"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home"
@@ -33,12 +34,12 @@ class App extends Component {
             <Switch>
             <Route exact path="/" render={()=> loggedIn ? <MyPosts /> : <Home />}/>
             <Route exact path="/login" component={Login}/>
+            <Route exact path="/all-posts" component={AllPosts}/>
             <Route exact path="/my-posts" component={MyPosts}/>
             <Route exact path="/signup" component={SignUp}/>
             <Route exact path="/my-posts/new" component={NewPostFormWrapper}/>
             <Route exact path="/posts/:id" render={props => {
               const post = allPosts ? allPosts.find((post => post.id == parseInt(props.match.params.id))) : "Loading"
-              console.log(props.match.params.id)
               return <PostCard post={post} {...props}/>
            }} />
             <Route exact path="/posts/:id/edit"    render={props => {

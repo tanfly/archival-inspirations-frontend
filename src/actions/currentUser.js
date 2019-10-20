@@ -2,21 +2,19 @@ import { resetLoginForm } from "./loginForm"
 import { getMyPosts } from "./myPosts"
 import { resetSignUpForm } from "./signupForm"
 import { clearPosts } from "./myPosts"
+import { getPosts } from "./allPosts"
 
 
 
 
 
-//synchronous action creators return plain JS objects
  export const setCurrentUser = user => {
  	return {
  		type: "SET_CURRENT_USER",
- 		// payload: user (that's in the arg) or we can use shorthand:
      user
  	}
  }
-//asynchronous action creators (thunk allows to use dispatch) that return FUNCTION and promise
-//which as an argument receives. Happens before the synchronous action
+
  export const login = (credentials, history) => {
  	return dispatch =>{
 		return fetch("http://localhost:3001/login",{
@@ -32,9 +30,9 @@ import { clearPosts } from "./myPosts"
 			if (user.error) {
 				alert(user.error)
 			} else {
-				// dispatch({type: "SET_CURRENT_USER", user: user}) but we have action creator above, so
 				dispatch(setCurrentUser(user))
         dispatch(getMyPosts(user.data.id))
+        dispatch(getPosts())
         dispatch(resetLoginForm())
         history.push("/")
 			}
@@ -60,10 +58,10 @@ import { clearPosts } from "./myPosts"
       if (user.error) {
         alert(user.error)
       } else {
-  //       // dispatch({type: "SET_CURRENT_USER", user: user}) but we have action creator above, so
         dispatch(setCurrentUser(user))
         dispatch(getMyPosts(user.data.id))
         dispatch(resetSignUpForm())
+        dispatch(getPosts())
         history.push("/")
       }
 
@@ -90,7 +88,6 @@ import { clearPosts } from "./myPosts"
       if (user.error) {
         alert(user.error)
       } else {
-        // dispatch({type: "SET_CURRENT_USER", user: user}) but we have action creator above, so
         dispatch(setCurrentUser(user))
         dispatch(getMyPosts(user.data.id))
       }
