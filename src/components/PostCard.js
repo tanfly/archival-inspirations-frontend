@@ -1,24 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { favorite } from '../actions/favorite'
 
 
 
-const PostCard = (post) => {
-	console.log(post)
+
+const PostCard = ({post,currentUser, handleClick}) => {
 
 	
 	return (
 
-		post.post.attributes ?
+		post ?
 		
 
 		<div className="postCard">
-		<h3>{post.post.attributes.title} - {post.post.attributes.time_period}</h3> <br/>
-		<img src={post.post.attributes.photo} alt={post.post.attributes.title} width="500px" height="500px"/><br/>
-		<button onClick={favorite(post.post)}>Favorite</button>
-		<p>{post.post.attributes.description}</p>
-		{post.post.relationships.user.data.id == post.currentUser.data.id ? <Link to={`/posts/${post.post.id}/edit`}>Edit Post</Link> : null}
+		<h3>{post.attributes.title} - {post.attributes.time_period}</h3> <br/>
+		<img src={post.attributes.photo} alt={post.attributes.title} width="500px" height="500px"/><br/><br/>
+		<img src="https://i.ibb.co/rs2s6sx/New-Project-4.png" alt="Favorite" width="30px" height="30px" onClick={event => handleClick(event)}/>{post.attributes.favorites.length}<br/>
+		<p>{post.attributes.description}</p>
+		{post.relationships.user.data.id == currentUser.data.id ? <Link to={`/posts/${post.id}/edit`}>Edit Post</Link> : null}
 		</div>
 		:
 		null

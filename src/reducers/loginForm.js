@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
 		return action.formData
 
 		case "RESET_LOGIN_FORM":
-		return initialState
+		return initialState 
 		
 		default:
 		  return state

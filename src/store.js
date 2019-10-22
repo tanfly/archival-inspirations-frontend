@@ -18,7 +18,7 @@ const reducer = combineReducers({
 	signupForm,
 	newPost,
 	favorite
-	})
+})
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))

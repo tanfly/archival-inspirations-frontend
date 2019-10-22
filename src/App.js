@@ -9,7 +9,7 @@ import MyPosts from "./components/MyPosts"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home"
 import Nav from "./components/Nav"
-import PostCard from "./components/PostCard"
+import PostCardWrapper from "./components/PostCardWrapper"
 import NewPostFormWrapper from "./components/NewPostFormWrapper"
 import EditFormWrapper from "./components/EditFormWrapper"
 
@@ -41,7 +41,7 @@ class App extends Component {
             <Route exact path="/posts/:id" render={props => {
               const post = allPosts ? allPosts.find((post => post.id == parseInt(props.match.params.id))) : "Loading"
               console.log(currentUser)
-              return <PostCard post={post} currentUser={currentUser} {...props}/>
+              return <PostCardWrapper post={post} currentUser={currentUser} {...props}/>
            }} />
             <Route exact path="/posts/:id/edit"    render={props => {
              const post = myPosts ? myPosts.find((post => post.id == parseInt(props.match.params.id))) : "Loading"
@@ -49,7 +49,7 @@ class App extends Component {
               }}/>
             </Switch>
           </Router>
-        </div>
+        </div> 
       </header>
     )
   }
@@ -60,7 +60,7 @@ const mapStateToProps = state => {
     loggedIn: !!state.currentUser,
     currentUser: state.currentUser, 
     myPosts: state.myPosts,
-    allPosts: state.allPosts
+    allPosts: state.allPosts,
   })
 }
 

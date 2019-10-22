@@ -12,7 +12,7 @@ class EditFormWrapper extends Component {
 
  componentDidMount(){
 	 this.props.post && this.props.setFormDataForEdit(this.props.post.attributes)
-	 console.log(this.props.post)
+	 console.log(this.props.post) 
  }
 
  componentDidUpdate(prevProps){
@@ -23,6 +23,7 @@ class EditFormWrapper extends Component {
  		console.log(this.props)
  		this.props.resetNewForm()
  }
+ 
  handleSubmit = (event, formData, userId) => {
  		const { updatePost, post, history } = this.props
 		event.preventDefault()

@@ -24,6 +24,6 @@ export const setFormDataForEdit = post => {
 	}
 	return {
 	type: "SET_FORM_DATA_FOR_EDIT",
-	postData
+	postData 
 }
 }

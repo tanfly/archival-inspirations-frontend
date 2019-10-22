@@ -13,7 +13,7 @@ import { getPosts } from "./allPosts"
  		type: "SET_CURRENT_USER",
      user
  	}
- }
+ } 
 
  export const login = (credentials, history) => {
  	return dispatch =>{

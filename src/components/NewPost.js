@@ -22,7 +22,7 @@ const NewPost = ({ formData, updateNewPost, history, userId, post, handleSubmit,
 
     <form onSubmit={event => {
 		event.preventDefault()
-        handleSubmit(event, formData, userId, history)}}>
+        handleSubmit(event, formData, userId, history)}}> 
 		{editMode ? <h3>{"Edit Post"}</h3> : <h3>{"Create New Post"}</h3>}
     	<input 
     	type="text"

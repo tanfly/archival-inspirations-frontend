@@ -121,9 +121,7 @@ export const updatePost = (postData, history) => {
 			if (post.error) {
 				alert(post.error)
 			} else{
-			dispatch(updatePostSuccess(post.data))
-			//this update will update the store
-			// dispatch(resetNewForm()) --> we included componentWillUnmount in edit wrapper which resets the form. 
+			dispatch(updatePostSuccess(post.data)) 
 			console.log(post.data.id)
 			history.push(`/posts/${post.data.id}`)
 		}

@@ -12,7 +12,7 @@ const Login = ({ loginForm, updateLoginForm, login, history }) => {
 			...loginForm,
 			[name]:value
 
-		}
+		} 
 		updateLoginForm(updatedFormInfo)
 		//passing the object into a function that came from imported action
 	
