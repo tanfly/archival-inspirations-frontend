@@ -5,6 +5,7 @@ import { getCurrentUser } from "./actions/currentUser"
 import Login from "./components/LoginForm"
 import SignUp from "./components/SignUp"
 import AllPosts from "./components/AllPosts"
+import MyFavorites from "./components/MyFavorites"
 import MyPosts from "./components/MyPosts"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home"
@@ -35,6 +36,7 @@ class App extends Component {
             <Route exact path="/" render={()=> loggedIn ? <MyPosts /> : <Home />}/>
             <Route exact path="/login" component={Login}/>
             <Route exact path="/all-posts" component={AllPosts}/>
+            <Route exact path="/my-favorites" component={MyFavorites}/>
             <Route exact path="/my-posts" component={MyPosts}/>
             <Route exact path="/signup" component={SignUp}/>
             <Route exact path="/my-posts/new" component={NewPostFormWrapper}/>

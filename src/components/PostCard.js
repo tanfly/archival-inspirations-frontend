@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const PostCard = ({post,currentUser, handleClick}) => {
+const PostCard = ({post, currentUser, handleClick}) => {
 
 	
 	return (

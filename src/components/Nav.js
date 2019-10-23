@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom'
 const Nav = ({currentUser, loggedIn}) => {
 	return (
 		<div className="nav">
+		<NavLink exact className="activeClass" to="/my-favorites">My Favorites</NavLink>
 		<NavLink exact className="activeClass" to="/all-posts">All Posts</NavLink>
 		<NavLink exact className="activeClass" to="/my-posts">My Posts  </NavLink>
 		<NavLink exact className="activeClass" to="/my-posts/new">New Post  </NavLink>

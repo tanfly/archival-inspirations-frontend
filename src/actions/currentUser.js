@@ -3,6 +3,7 @@ import { getMyPosts } from "./myPosts"
 import { resetSignUpForm } from "./signupForm"
 import { clearPosts } from "./myPosts"
 import { getPosts } from "./allPosts"
+import { setMyFavorites } from "./myFavorites"
 
 
 
@@ -34,6 +35,7 @@ import { getPosts } from "./allPosts"
         dispatch(getMyPosts(user.data.id))
         dispatch(getPosts())
         dispatch(resetLoginForm())
+        dispatch(setMyFavorites(user))
         history.push("/")
 			}
 
@@ -62,6 +64,7 @@ import { getPosts } from "./allPosts"
         dispatch(getMyPosts(user.data.id))
         dispatch(resetSignUpForm())
         dispatch(getPosts())
+        dispatch(setMyFavorites(user))
         history.push("/")
       }
 
@@ -91,6 +94,7 @@ import { getPosts } from "./allPosts"
         dispatch(setCurrentUser(user))
         dispatch(getMyPosts(user.data.id))
         dispatch(getPosts())
+        dispatch(setMyFavorites(user))
       }
 
 
